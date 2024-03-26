@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab 9</title> 
+</head>
+<body> 
+    <p id="q1">LAB 9 </p>
+    <script>
+
+        let inventory = {};
+
+        function addProduct(id, name, quantity) {
+            if (inventory[id]) {
+                inventory[id].quantity += quantity;
+            } else {
+                inventory[id] = {
+                    name: name,
+                    quantity: quantity
+                };
+            }
+        }
+
+        function displayInventory() {
+            console.log("Current Inventory:");
+            for (let id in inventory) {
+                console.log(`Product ID: ${id}, Name: ${inventory[id].name}, Quantity: ${inventory[id].quantity}`);
+            }
+        }
+
+        function findProduct(id) {
+            if (inventory[id]) {
+                console.log(`Product found - ID: ${id}, Name: ${inventory[id].name}, Quantity: ${inventory[id].quantity}`);
+            } else {
+                console.log("Product not found.");
+            }
+        }
+
+        addProduct("001", "Product 1", 10);
+        addProduct("002", "Product 2", 5);
+        displayInventory();
+        findProduct("001");
+        findProduct("003"); 
+    </script>
+</body>
+</html>
